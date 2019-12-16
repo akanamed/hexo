@@ -59,7 +59,7 @@ sidebar:
     author_links:
         github:
             title: global.github
-            url: https://github.com/
+            url: https://github.com/akanamed
             icon: fab fa-github
         mail:
             title: global.mail
@@ -97,8 +97,8 @@ header:
 
 # Your biography and your job is editable in each languages files in `languages` folder
 author:
-    email:
-    location:
+    email: akanamed@gmail.com
+    location: Seoul, Korea
     # Your profile picture located in folder `source/_images/` (development)
     # or in `source/assets/images/` (production)
     # or you can use an external url
