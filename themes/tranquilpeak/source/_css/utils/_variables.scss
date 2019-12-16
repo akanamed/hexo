@@ -6,23 +6,23 @@ $open-sans:            'Open Sans';
 $open-sans-sans-serif: 'Open Sans', sans-serif;
 $merriweather-serif:   'Merriweather', serif;
 $monospace:             Menlo, Consolas, monospace;
-$nanum-gothic:         'Nanum Gothic', sans-serif;
-$font-family-base: $nanum-gothic;
+$noto-sans-kr:         'Noto Sans KR', sans-serif;
+$font-family-base: $open-sans-sans-serif;
 
 $font-families: (
    // base
-   'headings':          $nanum-gothic,
+   'headings':          $open-sans-sans-serif,
    // components
-   'code':              $nanum-gothic,
-   'caption':           $nanum-gothic,
-   'image-gallery':     $nanum-gothic,
-   'post-header-cover': $nanum-gothic,
-   'post-meta':         $nanum-gothic,
-   'post-content':      $nanum-gothic,
-   'post-excerpt-link': $nanum-gothic,
-   'highlight':         $nanum-gothic,
+   'code':              $monospace,
+   'caption':           $merriweather-serif,
+   'image-gallery':     $open-sans,
+   'post-header-cover': $merriweather-serif,
+   'post-meta':         $open-sans-sans-serif,
+   'post-content':      $merriweather-serif,
+   'post-excerpt-link': $open-sans-sans-serif,
+   'highlight':         $monospace,
    // layout
-   'sidebar':           $nanum-gothic
+   'sidebar':           $open-sans-sans-serif
 );
 
 // equal to 15px
