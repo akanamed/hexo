@@ -10,7 +10,7 @@ tags:
 
 이 글을 포스팅 하는 시점의 node 버전은 10.16.3 이며, 설치가 되어 있다는 가정하에
 초 간단 express 웹 서버를 만드는 두가지 방법은 아래와 같다.
-<!-- excerpt -->
+<!-- more -->
 <!-- toc -->
 ### Express Genarator 이용
 
