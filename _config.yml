@@ -116,3 +116,9 @@ feed:
 #sitemap
 sitemap:
   path: sitemap.xml
+
+robotstxt:
+  useragent: "*"
+  allow:
+    - /
+  sitemap: https://akanamed.github.io/sitemap.xml
