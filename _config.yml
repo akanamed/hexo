@@ -101,3 +101,18 @@ deploy:
   type: git
   repo: https://github.com/akanamed/akanamed.github.io.git
   branch: master
+
+# NoFollow
+nofollow:
+  enable: true
+  exclude:
+
+#feed
+feed:
+  type: rss2
+  path: rss2.xml
+  limit: 20
+
+#sitemap
+sitemap:
+  path: sitemap.xml

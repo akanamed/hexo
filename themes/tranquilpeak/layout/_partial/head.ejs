@@ -163,7 +163,7 @@ var publisher = '';
     <!--STYLES END-->
     <%- partial('google-analytics') %>
     <%- partial('baidu-analytics') %>
-
+    <%- autoCanonical(config, page) %>
     <% if (page.comments) { %>
         <% if (theme.gitment.enable) { %>
             <%- css('assets/css/gitment.css') %>
