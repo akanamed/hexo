@@ -46,8 +46,6 @@ $ express --view=pug [폴더명]
 
 npm init 커맨드는 package.json을 생성하는데, -y 옵션을 주게 되면 알아서 내용을 채워준다.
 
-[package.json 설명 링크](https://programmingsummaries.tistory.com/385)
-
 #### npm init
 ``` bash
 $ npm init
@@ -117,10 +115,14 @@ $ + express@4.17.1
 $ added 50 packages from 37 contributors and audited 126 packages in 2.785s
 $ found 0 vulnerabilities
 ```
+package.json -> dependencies 에 express 가 추가 되었으며, package-lock.json 도 생성이 되었다.
+해당 관련 설명은 아래 링크 참조.
+[package.json 설명 링크](https://programmingsummaries.tistory.com/385)
+
 
 해당 작업 디렉토리에 app.js 파일을 하나 생성한 후 아래와 같은 코드를 작성한다.
 
-{% codeblock lang:objc %}
+{% codeblock app.js lang:objc %}
 var express = require('express');
 var app = express();
 
@@ -134,9 +136,23 @@ app.listen(3000, function () {
 {% endcodeblock %}
 
 
-서버 실행
+### 서버 실행
+
+기본적인 실행방법은 아래 커맨드.
 ``` bash
 $ node app.js
+```
+
+package.json 에 스크립트를 추가하여 서버 실행하는 방법.
+{% codeblock package.json lang:objc %}
+...
+"scripts": {
+    "start": "node app.js"
+},
+...
+{% endcodeblock %}
+``` bash
+$ npm start
 ```
 
 Done.
