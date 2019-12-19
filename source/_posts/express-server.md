@@ -15,7 +15,7 @@ node js가 설치가 되어 있다는 가정하에
 <!-- more -->
 <!-- toc -->
 
-### Command로 버전확인
+### Command로 현재 버전확인
 ``` bash
 $ node --version  
 v10.16.3
