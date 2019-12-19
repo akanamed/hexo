@@ -8,10 +8,22 @@ tags:
 ---
 ## express 서버 만드는 두가지 방법
 
-이 글을 포스팅 하는 시점의 node 버전은 10.16.3 이며, 설치가 되어 있다는 가정하에
-초 간단 express 웹 서버를 만드는 두가지 방법은 아래와 같다.
+node js가 설치가 되어 있다는 가정하에
+초 간단 express 웹 서버를 만드는 방법의 포스팅이다.
+
+
 <!-- more -->
 <!-- toc -->
+
+### Command로 버전확인
+``` bash
+$ node --version  
+v10.16.3
+
+$ npm --version
+6.13.4
+```
+
 ### Express Genarator 이용
 
 npm 버전이 5.2.0 이상인 경우 아래의 {% hl_text danger %}npx{% endhl_text %} 커맨드로 쉽게 생성할 수 있다.
@@ -32,15 +44,78 @@ $ express --view=pug [폴더명]
 
 ### npm init 이용
 
-npm init 커맨드는 -y 옵션 여부에 따라 package.json 을 수동으로 생성할 지, 
-자동으로 생성할 지 선택할 수 있다.
--y 옵션을 붙이면 package.json 파일만 자동으로 생성된다.
+npm init 커맨드는 package.json을 생성하는데, -y 옵션을 주게 되면 알아서 내용을 채워준다.
 
 [package.json 설명 링크](https://programmingsummaries.tistory.com/385)
 
+#### npm init
+``` bash
+$ npm init
+$
+$ This utility will walk you through creating a package.json file.
+$ It only covers the most common items, and tries to guess sensible defaults.
+
+$ See `npm help json` for definitive documentation on these fields
+$ and exactly what they do.
+
+$ Use `npm install <pkg>` afterwards to install a package and
+$ save it as a dependency in the package.json file.
+
+$ Press ^C at any time to quit.
+$ package name: (test1)
+$ version: (1.0.0)
+$ description: test project
+$ entry point: (index.js)
+$ test command:
+$ git repository:
+$ keywords:
+$ author:
+$ license: (ISC)
+$ About to write to package.json:
+
+$ {
+$   "name": "test1",
+$   "version": "1.0.0",
+$   "description": "test project",
+$   "main": "index.js",
+$   "scripts": {
+$     "test": "echo \"Error: no test specified\" && exit 1"
+$   },
+$   "author": "",
+$   "license": "ISC"
+$ }
+
+
+$ Is this OK? (yes)
+```
+
+#### npm init -y
 ``` bash
 $ npm init -y
+
+$ Wrote to package.json:
+
+$ {
+$   "name": "test1",
+$   "version": "1.0.0",
+$   "description": "",
+$   "main": "index.js",
+$   "scripts": {
+$     "test": "echo \"Error: no test specified\" && exit 1"
+$   },
+$   "keywords": [],
+$   "author": "",
+$   "license": "ISC"
+$ }
+```
+#### express install
+``` bash
 $ npm install express --save
+
+$ npm notice created a lockfile as package-lock.json. You should commit this file.
+$ + express@4.17.1
+$ added 50 packages from 37 contributors and audited 126 packages in 2.785s
+$ found 0 vulnerabilities
 ```
 
 해당 작업 디렉토리에 app.js 파일을 하나 생성한 후 아래와 같은 코드를 작성한다.
