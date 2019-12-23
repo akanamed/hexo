@@ -21,9 +21,10 @@ ruby 설치부터 적용까지가 쉽지 않았다. ( 결과적으로는 실패�
 조금 난관에 부딪히기도 했지만 성공적으로 만들게 되었다.
 
 아래는 hexo tranquilpeak 테마 적용에 대해 도움을 많이 받은 사이트
+[hexo tranquilpeak 테마 환경 설정](https://jeyolog.github.io/2018/08/11/tranquilpeak-configuration/)
 [Github 블로그 만들기 with Hexo](https://mingpd.github.io/2019/04/14/github-blog-with-hexo-1/)
 
-정말 위 사이트로 들어가서 목차대로만 하면 금방 만들어진다.
+정말 위 사이트로 들어가서 따라하면 금방 만들어진다.
 
 하지만 지금 이 블로그의 tranquilpeak 테마 버전의 최신 release는 3.1.1 이며, 
 내가 수정한 것에 대한 삽질기를 기록으로 남긴다.
