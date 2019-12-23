@@ -166,6 +166,8 @@ tag_pagination: true
 disqus_shortname:
 # Your Gitment information
 # Read https://github.com/imsun/gitment#get-started to setup Gitment
+utterances:
+    enable: true
 gitment:
     # Switch
     enable: false
