@@ -7,22 +7,39 @@ $open-sans-sans-serif: 'Open Sans', sans-serif;
 $merriweather-serif:   'Merriweather', serif;
 $monospace:             Menlo, Consolas, monospace;
 $noto-sans-kr:         'Noto Sans KR', sans-serif;
-$font-family-base: $open-sans-sans-serif;
+$nanum-gothic-coding:  'Nanum Gothic Coding', sans-serif;
+$font-family-base: $nanum-gothic-coding;
+
+// $font-families: (
+//    // base
+//    'headings':          $noto-sans-kr,
+//    // components
+//    'code':              $monospace,
+//    'caption':           $merriweather-serif,
+//    'image-gallery':     $open-sans,
+//    'post-header-cover': $merriweather-serif,
+//    'post-meta':         $noto-sans-kr,
+//    'post-content':      $noto-sans-kr,
+//    'post-excerpt-link': $noto-sans-kr,
+//    'highlight':         $monospace,
+//    // layout
+//    'sidebar':           $noto-sans-kr
+// );
 
 $font-families: (
    // base
-   'headings':          $open-sans-sans-serif,
+   'headings':          $nanum-gothic-coding,
    // components
    'code':              $monospace,
-   'caption':           $merriweather-serif,
+   'caption':           $nanum-gothic-coding,
    'image-gallery':     $open-sans,
-   'post-header-cover': $merriweather-serif,
-   'post-meta':         $open-sans-sans-serif,
-   'post-content':      $merriweather-serif,
-   'post-excerpt-link': $open-sans-sans-serif,
+   'post-header-cover': $nanum-gothic-coding,
+   'post-meta':         $nanum-gothic-coding,
+   'post-content':      $nanum-gothic-coding,
+   'post-excerpt-link': $nanum-gothic-coding,
    'highlight':         $monospace,
    // layout
-   'sidebar':           $open-sans-sans-serif
+   'sidebar':           $nanum-gothic-coding
 );
 
 // equal to 15px
