@@ -6,13 +6,13 @@ categories:
 tags:
    - express
 ---
-## express 서버 만드는 두가지 방법
+
 node js가 설치가 되어 있다는 가정하에 초 간단 express 웹 서버를 만드는 방법의 포스팅이다.
 <!-- more -->
 <!-- toc -->
 
 
-### Command로 현재 버전확인
+## Command로 현재 버전확인
 ``` bash
 $ node --version  
 v10.16.3
@@ -20,8 +20,10 @@ v10.16.3
 $ npm --version
 6.13.4
 ```
+## express 서버 만드는 두가지 간단한 방법
+express generator 와 npm init 으로 간단히 만들 수 있다.
 
-### (1)Express Genarator 이용
+### (1)Express Generator 이용
 
 npm 버전이 5.2.0 이상인 경우 아래의 {% hl_text danger %}npx{% endhl_text %} 커맨드로 쉽게 생성할 수 있다.
 npx 설명 링크 : [npx란 무엇인가?](https://ljh86029926.gitbook.io/coding-apple-react/undefined/npm-npx)

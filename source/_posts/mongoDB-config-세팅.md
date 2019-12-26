@@ -6,7 +6,7 @@ categories:
 tags:
    - mongodb
 ---
-## mongoDB cfg 설정하기
+
 MongoDB 를 설치하게 되면 기본 구성파일은 Windows 기준으로 /install directory/bin/mongod.cfg 에 위치한다.
 <!-- more -->
 <!-- toc -->

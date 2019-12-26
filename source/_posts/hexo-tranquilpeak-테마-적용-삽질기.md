@@ -7,7 +7,7 @@ tags:
    - hexo
    - tranquilpeak
 ---
-## hexo 를 이용해 github 블로그 만들기
+
 얼마전 부터 뭔가 정리를 하나씩 해야겠다는 생각에 github 블로그를 만들어보고자 했다.
 결론부터 얘기하면 쉽지 않았다.
 <!-- more -->
