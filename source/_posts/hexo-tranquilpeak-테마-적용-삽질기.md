@@ -1,7 +1,6 @@
 ---
 title: hexo tranquilpeak 테마 적용 삽질기
 date: 2019-12-23 11:30:58
-updated: 2019-12-23 11:30:58
 categories:
    - hexo
 tags:
@@ -112,7 +111,57 @@ utterances:
     ...
 {% endcodeblock %}
 
-#### 로컬에서 최종 적용 확인 및 deploy
+### LastUpdated 기능 추가
+
+아래 front matter - post.md 는 hexo new 'title' 로 생성할 때마다 아래 양식에 맞춰 생성되게끔
+커스터마이징한 것이며, lastUpdated 기능 추가를 위해 updated 를 아래처럼 추가.
+
+{% codeblock scaffolds/post.md %}
+---
+title: {{ title }}
+date: {{ date }}
+updated:
+categories:
+tags:
+---
+<!-- more -->
+<!-- toc -->
+{% endcodeblock %}
+
+그럼 이제 themes/tranquilpeak 에서 몇군데에 코드를 수정해줘야한다.
+ko.yml 에 date_format 아래에 updated_format 을 추가.
+{% codeblock themes/tranquilpeak/languages/ko.yml %}
+
+date_format: "YYYY/MM/DD HH:mm:ss"
+updated_format: "YYYY/MM/DD HH:mm:ss"
+
+{% endcodeblock %}
+
+아래 경로대로 찾아가서 meta.ejs 에 아래 코드를 추가.
+post.md에서 추가했던 updated 를 표시하기 위한 코드.
+
+{% codeblock themes/tranquilpeak/layout/_partial/post/meta.ejs lang:html %}
+    <br>
+    <% if (post.updated) { %>
+        <span><%= 'LastUpdated '  %> </span>
+        <time datetime="<%= post.date.format() %>">
+            <% if (post.lang) { %>
+                    <%= post.updated.locale(post.lang).format(__('updated_format')) %>
+                <% } else { %>
+                    <%= post.updated.locale(page.lang).format(__('updated_format')) %>
+                <% } %>
+        </time>
+    <% } %>
+{% endcodeblock %}
+
+_config.yml 에 use_date_for_updated  항목이 false 로 되어 있는지 확인.
+true로 되어있다면, false 로 바꿔준다.
+{% blockquote %}
+true로 설정하게 되면, updated 가 포스트 생성 날짜로 사용한다는 의미
+주의 : _config.yml 은 테마폴더 안의 파일이 아니고 프로젝트의 파일
+{% endblockquote %}
+
+### 로컬에서 최종 적용 확인 및 deploy
 ``` bash
 $ hexo s
 $ hexo g

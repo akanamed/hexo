@@ -1,5 +1,6 @@
 # 블로그의 모든 곳에 표시되는 날짜 형식
-date_format: "YYYY/MM/DD"
+date_format: "YYYY/MM/DD HH:mm:ss"
+updated_format: "YYYY/MM/DD HH:mm:ss"
 
 global:
     home: "Home"

@@ -155,4 +155,5 @@ package.json 에 스크립트를 추가하여 서버 실행하는 방법.
 $ npm start
 ```
 
-Done.
+간단하지만, 다음 포스팅에서는 express-generator를 이용해 api 서버를 만들었던
+삽질기를 기록 해봐야겠다.
