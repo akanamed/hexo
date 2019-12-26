@@ -1,21 +1,18 @@
 ---
 title: mongoDB config 세팅
 date: 2019-12-20 15:23:32
-updated: 2019-12-20 15:23:32
 categories:
    - mongodb
 tags:
    - mongodb
 ---
-
 ## mongoDB cfg 설정하기
-
 MongoDB 를 설치하게 되면 기본 구성파일은 Windows 기준으로 /install directory/bin/mongod.cfg 에 위치한다.
-mongod.cfg 는 YAML 형식을 사용한다.
-( YAML 은 들여 쓰기, 탭 문자가 지원되지 않고, 공백을 사용해야 한다.)
-
 <!-- more -->
 <!-- toc -->
+
+mongod.cfg 는 YAML 형식을 사용한다.
+( YAML 은 들여 쓰기, 탭 문자가 지원되지 않고, 공백을 사용해야 한다.)
 
 MongoDB 3.6부터는 기본적으로 localhost에 바인딩 되는데, 
 외부에서도 접속하게 허용할려면 cfg를 수정해야한다.

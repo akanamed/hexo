@@ -7,17 +7,17 @@ tags:
    - hexo
    - tranquilpeak
 ---
-
 ## hexo 를 이용해 github 블로그 만들기
-
 얼마전 부터 뭔가 정리를 하나씩 해야겠다는 생각에 github 블로그를 만들어보고자 했다.
 결론부터 얘기하면 쉽지 않았다.
 <!-- more -->
 <!-- toc -->
+
 github 블로그는 거의 대부분 jekyll 테마를 적용하는 듯 해서 시도를 해보았지만,
 ruby 설치부터 적용까지가 쉽지 않았다. ( 결과적으로는 실패했다. )
 그러던 중에 hexo 테마를 검색하게 되었고, nodejs 기반이라 익숙하기도 했으며,
 조금 난관에 부딪히기도 했지만 성공적으로 만들게 되었다.
+
 
 아래는 hexo tranquilpeak 테마 적용에 대해 도움을 많이 받은 사이트
 [hexo tranquilpeak 테마 환경 설정](https://jeyolog.github.io/2018/08/11/tranquilpeak-configuration/)
