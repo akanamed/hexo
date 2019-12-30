@@ -108,11 +108,15 @@ app.use('/users', usersRouter);
 {% codeblock app.js lang:objc %}
 // error handler
 app.use(function(req, res, next) {
-    res.status(404).send('Sorry cant find that!');
+    var err = new Error('Sorry cant find that!');
+    err.status = 404;
+    next(err);
 });
+
 app.use(function(err, req, res, next) {
     console.error(err.stack);
-    res.status(500).send('Something broke!');
+    res.status(err.status || 500);
+    res.send(err.message);
 });
 {% endcodeblock %}
 
