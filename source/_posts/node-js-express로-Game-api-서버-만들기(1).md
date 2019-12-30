@@ -155,4 +155,6 @@ D:\test-api-server>npm start
 여기까지 기본적인 Server-side 프레임워크를 만들어보았다.
 [해당 링크](https://www.freecodecamp.org/news/how-to-enable-es6-and-beyond-syntax-with-node-and-express-68d3e11fe1ab/) 에서는 babel관련 패키지, npm-run-all, rimraf 패키지, 빌드환경 설정등이 나와있지만, 기본 설정은 여기까지만으로도 충분하다고 생각된다.
 
+이제 기본 설정된 프로젝트를 개선하고 추가할 일만 남았다.
+
 Done.
