@@ -97,13 +97,15 @@ package.json 의 npm script 경로를 아래와 같이 바꿔준다.
 ```
 app.js 파일 수정
 아래에 사용하지 않는 코드는 다 지워준다.
-그리고 템플릿 엔진 사용하지않고 프로젝트를 만들었기 때문에,
-에러관련 처리 코드도 추가해줘야한다.
 {% codeblock src/bin/app.js lang:objc %}
 var usersRouter = require('./routes/users');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', usersRouter);
+{% endcodeblock %}
 
+그리고 템플릿 엔진 사용하지않고 프로젝트를 만들었기 때문에,
+에러관련 처리 코드도 추가해줘야한다.
+{% codeblock src/bin/app.js lang:objc %}
 // error handler
 app.use(function(err, req, res, next) {
     console.error(err.stack);
