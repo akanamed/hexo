@@ -97,10 +97,22 @@ package.json 의 npm script 경로를 아래와 같이 바꿔준다.
 ```
 app.js 파일 수정
 아래에 사용하지 않는 코드는 다 지워준다.
-{% codeblock src/bin/www lang:objc %}
+그리고 템플릿 엔진 사용하지않고 프로젝트를 만들었기 때문에,
+에러관련 처리 코드도 추가해줘야한다.
+{% codeblock src/bin/app.js lang:objc %}
 var usersRouter = require('./routes/users');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', usersRouter);
+
+// error handler
+app.use(function(err, req, res, next) {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
+app.use(function(req, res, next) {
+    res.status(404).send('Sorry cant find that!');
+});
+
 {% endcodeblock %}
 
 app.js 에서 routes/index 의 참조 경로를 바꿔준다.
@@ -153,8 +165,15 @@ D:\test-api-server>npm start
 [nodemon] starting 'node src/bin/www'
 ```
 
+http://localhost:3000/1 을 입력하게 되면 app.js에 추가했었던 에러관련 코드도 볼 수 있다.
+
 여기까지 기본적인 Server-side 프레임워크를 만들어보았다.
 [해당 링크](https://www.freecodecamp.org/news/how-to-enable-es6-and-beyond-syntax-with-node-and-express-68d3e11fe1ab/) 에서는 babel관련 패키지, npm-run-all, rimraf 패키지, 빌드환경 설정등이 나와있지만, 기본 설정은 여기까지만으로도 충분하다고 생각된다.
+
+번외)
+해당 링크대로 심플하게 Server-side 용으로 프로젝트를 구성하였지만,
+express (프로젝트명) --view=pug 로 생성 후 customizing 해도 될 것 같다.
+위 생성과 차이점이라면, http-errors 패키지 포함 여부밖에 없다.
 
 이제 기본 설정된 프로젝트를 개선하고 추가할 일만 남았다.
 
