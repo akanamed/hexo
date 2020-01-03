@@ -77,4 +77,18 @@ package.json
   },
 ```
 
+## 그러면 express 에서 babel은?
+
+사실 이부분이 제일 중요할 것 같은데, 
+express-generator 로 생성한 프로젝트는 기본 실행이 bin/www 에서 이루어진다.
+아래 app.js에서 29라인을 export default app; 으로 수정 후
+bin/www 에서 import App from "../app"; 으로 선언하게 되면,
+SyntaxError: Cannot use import statement outside a module 에러가 뜬다.
+
+{% gist b7a59fa048b6a9f9fa8db9050b789ac2 %}
+
+즉, generator로 생성한 bin/www 는 단순히 서버 구동을 위한 코드이므로,
+app.js 파일을 가져와 http 객체와 연결시켜주는 동작밖에 없다.
+app.js에서의 export는 예외적으로 commonJS 문법으로 bin/www에 넘겨주어야 한다.
+
 Done.
