@@ -12,12 +12,20 @@ tags:
 
 Game api 서버를 만들어보자.
 [공식 홈페이지](https://nodejs.org/ko/)에서 Node.js 최신버전을 다운한다.
-이 글을 쓰는 현재 공홈 최신 LTS 버전은 12.14.0 이지만,
-난 로컬에 이미 설치한 버전은 10.16.3 이므로 그대로 진행한다.
-( node.js 버전업은 나중에... )
+이 글을 쓰는 현재 공홈 최신 LTS 버전은 12.14.0 이다.
+난 로컬에 이미 설치한 버전은 10.16.3 이다.
 
 <!-- more -->
 <!-- toc -->
+
+## Node.js 버전업
+그럼 Node.js 버전업을 해보자.
+Windows 에서 node 버전업은 최신 LTS msi 를 다운받아 새로 설치하면 된다.
+
+``` bash
+$ node -v
+v12.14.0
+```
 
 ## server-side framework 만들기 with express-generator
 
