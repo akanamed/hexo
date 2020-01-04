@@ -91,4 +91,38 @@ SyntaxError: Cannot use import statement outside a module 에러가 뜬다.
 app.js 파일을 가져와 http 객체와 연결시켜주는 동작밖에 없다.
 app.js에서의 export는 예외적으로 commonJS 문법으로 bin/www에 넘겨주어야 한다.
 
+###  express 에서 babel로 트랜스파일링
+1편에서 만들었던 폴더 구조에 app.js 도 src 폴더 아래에 옮겨주자.
+package.json 에 babel transfiling 을 추가한다.
+babel 로 src 폴더에 있는 *.js 파일들을 -w ( -watch와 동일: 파일 자동변경 감지) 옵션과
+-d 옵션으로 (--out-dir와 동일: target directory ) dist 폴더에 변환하겠다는 의미이다.
+``` bash
+"scripts": {
+    "build": "babel src -w -d dist"
+  },
+```
+그리고 빌드를 하게 되면 dist 폴더가 생기면서 변환된 파일들이 생성된다.
+``` bash
+$ npm run build
+```
+
+최종 폴더구조
+{% asset_img folder.PNG This is an example image %}
+{% asset_img "spaced folder.PNG" "spaced title" %}
+
+#### 변환된 파일 실행을 위한 마지막 구성
+
+.eslintignore 에 dist 폴더 이하는 검사기에서 제외하도록 아래와 같이 추가해준다.
+``` bash
+dist/*
+```
+
+express-generator 로 프로젝트를 생성하게 되면 src/bin/www 의 파일은 트랜스파일링이 되지 않는다.
+따라서 dist 폴더 아래에 bin/www 를 그대로 복사해서 옮겨놓자.
+그리고 babel 로 빌드한 dist/bin/www 를 실행해보자
+``` bash
+$ C:\GameApiServer>node dist/bin/www
+Server Listening on 3000
+```
+
 Done.
