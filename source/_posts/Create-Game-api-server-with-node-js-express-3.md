@@ -171,6 +171,6 @@ controller/auth.controller.js 는 아래와 같이 작성한다.
 
 /auth/create는 아무런 동작을 하지 않는다. 
 
-다음 포스팅은 express-session 과 redis, passport를 이용해서 로그인을 마무리한다.
+다음 포스팅은 express-session 과 mongoDB, passport를 이용해서 로그인을 마무리한다.
 
 Done.
