@@ -155,7 +155,7 @@ $ npm start
 
 ### nodemon 설치
 개발을 하다보면 수정 및 변경 후 확인을 위해 매번 npm start 커맨드를 입력하기가 번거로우므로
-[nodemon](https://akanamed.github.io/2019/12/27/VSCode%EC%97%90%EC%84%9C-Node-js-%EB%94%94%EB%B2%84%EA%B9%85%ED%95%98%EA%B8%B0/#nodemon-%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%94%94%EB%B2%84%EA%B7%B8-%EC%84%A4%EC%A0%95) 을 설치하자.
+[nodemon](https://akanamed.github.io/2019/12/27/Debugging-Nodejs-in-VSCode/) 을 설치하자.
 package.json 의 npm script 를 아래와 같이 바꿔준다.
 ``` bash
 "scripts": {
