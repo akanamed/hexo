@@ -135,7 +135,7 @@ POST /auth/create/1 404 16.541 ms - 21
 서버에서 해당 요청 경로에 대한 정의가 되어 있지 않으므로,
 에러스택을 콘솔로 찍으면서 404 에러를 리턴한다.
 
-## 번외 : babel 로 빌드 후 테스트
+### 번외 : babel 로 빌드 후 테스트
 ``` bash
 $ npm run build
 > test-api-server@0.0.0 build D:\test-api-server
@@ -155,5 +155,22 @@ POST /auth/create 200 15.530 ms - 21
 ```
 
 잘 동작함을 알 수 있다.
+
+## 로그인 라우터 기능 구현
+아직 database 저장이나 session 을 이용한 로그인 / 로그아웃 기능은 없으므로,
+기본 구조만 만들어보자.
+
+routes/auth.route.js 는 아래와 같이 작성한다.
+{% gist 60aeeb55653c63eaff0b55899b4388f3 %}
+
+controller/auth.controller.js 는 아래와 같이 작성한다.
+{% gist a676cec6bdec61d1eaf7a4fc7db86ce2 %}
+
+/auth/login 으로 요청이 들어오면, UserInfo.userid 와 UserInfo.password로
+비교하여 로그인 성공/실패 redirect를 리턴한다.
+
+/auth/create는 아무런 동작을 하지 않는다. 
+
+다음 포스팅은 express-session 과 redis, passport를 이용해서 로그인을 마무리한다.
 
 Done.
