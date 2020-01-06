@@ -1,5 +1,5 @@
 ---
-title: mongoDB config 세팅
+title: Set Config MongoDB
 date: 2019-12-20 15:23:32
 categories:
    - mongodb

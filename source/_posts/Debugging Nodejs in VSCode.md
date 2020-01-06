@@ -1,5 +1,5 @@
 ---
-title: VSCode에서 Node.js 디버깅하기
+title: Debugging Nodejs in VSCode
 date: 2019-12-27 16:10:30
 updated:
 categories:

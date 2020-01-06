@@ -1,5 +1,5 @@
 ---
-title: node.js 환경에서 eslint 설정하기
+title: Setting eslint in nodejs
 date: 2019-12-26 16:08:08
 updated:
 categories:

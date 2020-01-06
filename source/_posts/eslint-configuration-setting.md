@@ -14,7 +14,7 @@ tags:
 <!-- more -->
 <!-- toc -->
 
-이전글 : [node.js 환경에서 eslint 설정하기](https://akanamed.github.io/2019/12/26/node-js-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-eslint-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/)
+이전글 : [Setting eslint in nodejs](https://akanamed.github.io/2019/12/26/node-js-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-eslint-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/)
 eslint 패키지를 설치하고 init 을 하면 아래와 같은 json 파일이 생성된다.
 
 ``` bash

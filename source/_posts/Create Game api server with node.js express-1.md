@@ -1,5 +1,5 @@
 ---
-title: node.js+express로 Game api 서버 만들기(1)
+title: Create Game api server with node.js express-1
 date: 2019-12-30 10:47:11
 updated:
 categories:
