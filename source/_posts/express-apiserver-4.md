@@ -182,7 +182,11 @@ exports.logout = (req, res, next) => {
 };
 {% endcodeblock %}
 
-### test
+## test 및 최종 폴더구조
+지금까지 작업한 최종 폴더구조는 다음과 같다.
+{% asset_img folder2.PNG This is an example image %}
+{% asset_img "spaced folder2.PNG" "spaced title" %}
+
 db에 저장되어 있는 계정으로 /auth/login 요청을 하면, testdb/sessions 에 
 세션정보가 저장된다.
 
@@ -191,5 +195,6 @@ db에 저장되어 있는 계정으로 /auth/login 요청을 하면, testdb/sess
 
 req.session 에 세션 정보가 저장되어 있으며, 
 로그인 성공 시 req.session.user 에 저장했던 값도 볼 수 있다.
+
 
 Done.
