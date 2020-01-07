@@ -76,7 +76,7 @@ testdb 에 저장할 user schema 를 생성하고 ,
 {% gist 11c93cc334931a44db014f4d6d52f8c2 %}
 
 ### controller 의 handler 수정
-[3편](https://akanamed.github.io/2020/01/06/Create-Game-api-server-with-node-js-express-3/)에서 만들었던 auth.controller.js에 mongodb에 넣고 조회하는 로직을 추가한다.
+[3편](https://akanamed.github.io/2020/01/06/express-apiserver-3/)에서 만들었던 auth.controller.js에 mongodb에 넣고 조회하는 로직을 추가한다.
 authcontroller.createUser 와 authcontroller.login 부분이 UserRepository의 메소드를 호출해서
 리턴하도록 수정되었다.
 {% gist 5d8df091d0d5f3517a00a2e4c9177c8b %}

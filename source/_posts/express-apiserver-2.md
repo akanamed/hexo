@@ -10,7 +10,7 @@ tags:
    - apiserver
 ---
 
-[1편](https://akanamed.github.io/2019/12/30/Create-Game-api-server-with-node.js-express-1/)에서 
+[1편](https://akanamed.github.io/2019/12/30/express-apiserver-1/)에서 
 만들었던 기본 구조에 babel 을 설정해보자.
 ES5 로만 코드를 작성한다면, babel은 필요없을 지 모르나, 
 ES6+ 의 새로운 기능을 사용하기 위해 설치하자.
