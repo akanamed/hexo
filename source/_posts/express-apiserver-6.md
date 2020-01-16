@@ -117,12 +117,12 @@ import UserRepository from '../models/repository/userRepository';
 
 module.exports = (passport) => {
     passport.serializeUser((user, done) => {
-        console.log('serializeUser');
+        console.log('serializeUser:%O', user);
         done(null, user);
     });
-    passport.deserializeUser((user, done) => {
-        console.log('deserializeUser');
-        done(null, user);
+    passport.deserializeUser((id, done) => {
+        console.log('deserializeUser: %O', id);
+        done(null, id);
     });
 
     passport.use(new LocalStrategy({
@@ -134,7 +134,8 @@ module.exports = (passport) => {
                 console.log('resultUser');
                 return done(null, false);
             }
-            return done(null, resultUser);
+            console.log('call localstrategy');
+            return done(null, { userid: resultUser.userid });
         })
         .catch((err) => done(err))));
 };
@@ -155,7 +156,7 @@ passportConfig(passport);
 {% codeblock auth.controller.js lang:objc %}
 exports.login = (req, res, next) => {
     const user = req.body;
-    console.log('%s, %s', user.userid, user.password);
+    console.log('%s, %s, %O, %O', user.userid, user.password, req.user, req.session.passport);
     passport.authenticate('local', { session: false }, (err, result, info) => {
         if (err) {
             return next(err);
@@ -164,7 +165,7 @@ exports.login = (req, res, next) => {
             return res.redirect('/auth/login/fail');
         }
         return req.login(result, (error) => {
-            console.log('call req.login');
+            console.log('call req.login, %O, %O', req.user, req.session.passport);
             if (error) {
                 next(error);
             }
@@ -173,5 +174,68 @@ exports.login = (req, res, next) => {
     })(req, res, next);
 }
 {% endcodeblock %}
+
+### passport 인증 동작 방식 확인
+수정한 코드에 유저 로그인 시 어떠한 방식으로 동작되는지 console.log를 추가하였는데
+서버를 실행 후 postman 으로 요청해보면 아래와 같은 로그가 출력된다.
+
+``` bash
+bbbbb, 12345, undefined, undefined
+call localstrategy
+serializeUser:{ userid: 'bbbbb' }
+call req.login, { userid: 'bbbbb' }, { user: 'bbbbb' }
+GET /auth/login 302 25.412 ms - 41
+deserializeUser: 'bbbbb'
+GET /auth/login/success 200 0.971 ms - 27
+```
+출력된 로그를 분석해보면
+1. { userid: bbbbb, password: 12345 } 의 body 정보를 담아 /auth/login 으로 request 보냄
+    ( 아직 req.user , req.session.passport는 undefined )
+2. passport.authenticate 함수 호출해서 존재하는 유저라면, done 콜백함수에 userid만 저장 후 리턴.
+3. serializeUser 함수 호출 : done 콜백함수에서 user 정보를 이용해 세션에 저장.
+    ( 이때 req.user 및 req.session.passport.user에 정보가 저장된다. )
+4. req.login 함수 호출 : req.user 와 req.session.passport 정보가 출력된다.
+5. redirect( /auth/login/success ) 요청에 의해 deserializeUser가 호출되어 세션에 저장된 정보가 출력.
+
+즉, passport 동작 방식은
+login request -> passport.authenticate -> serializeUser -> req.login -> response  이다.
+인증이 통과한 유저는 웹페이지 요청 시 deserializeUser 가 호출됨을 알 수 있다.
+
+### req.isAuthenticated
+서버로 보내는 모든 웹 요청에 유저가 인증이 되었는지 확인 하는 함수가 req.isAuthenticated 이다.
+아래 코드처럼 /auth/logininfo 요청이 들어오면 서버에서 ensuerAuthenticated 함수로 
+인증여부를 확인 한 후 세션 정보가 없거나 만료되었다면 로그인이 필요하다는 응답을 보내주고, 
+세션 정보가 있는 유저라면 loginInfo 컨트롤러 함수를 실행해서 응답해준다.
+
+{% codeblock auth.route.js lang:objc %}
+function ensureAuthenticated(req, res, next) {
+    if (!req.isAuthenticated()) {
+        res.status(403).json({ message: 'need login session' });
+    } else {
+        next();
+    }
+}
+authRouter.route('/logininfo')
+    .get(ensureAuthenticated, authController.loginInfo);
+
+{% endcodeblock %}
+
+{% codeblock auth.controller.js lang:objc %}
+exports.loginInfo = (req, res, next) => {
+    console.log('call loginInfo, %O, %O', req.user, req.session.passport);
+    const userInfo = req.user;
+    return res.json({
+        user: userInfo
+    });
+};
+{% endcodeblock %}
+
+세션정보가 있는 유저가 /auth/logininfo 요청을 해보면
+``` bash
+deserializeUser: 'bbbbb'
+call loginInfo, 'bbbbb', { user: 'bbbbb' }
+GET /auth/logininfo 200 1.032 ms - 16
+```
+passport 인증단계는 이미 거쳤으므로 deserializeUser 만 호출되어 응답한다.
 
 Done.
